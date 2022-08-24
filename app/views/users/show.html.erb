@@ -1,0 +1,41 @@
+<% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+   <% end %>
+
+<%= render "info", user: @user, book: @book %>
+
+
+<table>
+  <h2>Book Deteil</h2>
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+      <th class="books"></th>
+      <th class="books"></th>
+      
+    </tr>
+  </thead>
+
+ <tbody>
+     <% @books.each do |book| %>
+   
+     <tr>
+      <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+      <td><%= link_to book.title, book_path(book.id) %></td>
+      
+      <td><%= book.body %></td> 
+      <td></td>
+      <td><%= link_to @user.name, user_path(@user) %></td>
+     </tr>
+     
+   <% end %>
+
+</table>
+
+<% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+   <% end %>

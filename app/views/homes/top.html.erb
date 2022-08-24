@@ -1,1 +1,16 @@
-<h1>ここはTopページです</h1>
+<% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+   <% end %>
+
+<h1>welcome to Bookers!!</h1>
+<h4>In Bookers</h4>
+
+<h4>you can share and exchange your opinions , inpressions , and emotions</h4>
+
+<h4>about various books!</h4>
+
+
+<li><%= link_to "log-in", new_user_session_path %></li>
+<li><%= link_to "sign-up", new_user_registration_path %></li>
