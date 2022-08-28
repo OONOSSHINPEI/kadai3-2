@@ -14,25 +14,36 @@
   </ul>
 <% end %>
 
-<%= render "users/info", user: @user, book: @new_book %>
+
+
+<div class="container px-5 px-sm-0">  
+<div class="row">
+
+<div class="col-md-3"><%= render "users/info", user: @user, book: @new_book %></div>
+
+
+<div Class="col-md-8 offset-md-1">
+<table class="table table">
 <tbody>
   <tr>
     
 <h2>Book detail</h2>
-    <%= image_tag @user.get_profile_image(100,100) %>
-    <td><%= link_to @user.name, user_path(@user) %></td>
-    <dr></dr>
+    <td><%= image_tag @user.get_profile_image(100,100) %></td>
     <td><%= link_to @book.title, book_path(@book) %></td>
     <td><%= @book.body %></td>
-  </tr>
-  
-   <%= link_to "Edit", edit_book_path(@book) %>  
-   <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当にしますか?" %>
-   
+    <% if @user == current_user %>
+     <td><%= link_to "Edit", edit_book_path(@book), class: 'btn btn-default btn-success' %></td>
+     <td><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当にしますか?", class: 'btn btn-default btn-danger' %></td>
+    <% end %>
    
 </tbody>
 
+</table>
+<td><%= link_to @user.name, user_path(@user) %></td>
+</div>
 
+</div>
+</div>
 
  
 

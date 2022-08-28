@@ -61,3 +61,7 @@ gem 'devise'
 
 gem 'net-smtp'
 
+gem 'font-awesome-sass'
+
+
+
